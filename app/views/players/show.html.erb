@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @player.name %>
+</p>
+
+<p>
+  <b>Surname:</b>
+  <%= @player.surname %>
+</p>
+
+<p>
+  <b>Date of birth:</b>
+  <%= @player.date_of_birth %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @player.email %>
+</p>
+
+<p>
+  <b>Foot:</b>
+  <%= @player.foot %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @player.position %>
+</p>
+
+<p>
+  <b>Appearances:</b>
+  <%= @player.appearances %>
+</p>
+
+<p>
+  <b>Goals:</b>
+  <%= @player.goals %>
+</p>
+
+<p>
+  <b>Assists:</b>
+  <%= @player.assists %>
+</p>
+
+<p>
+  <b>Yellow cards:</b>
+  <%= @player.yellow_cards %>
+</p>
+
+<p>
+  <b>Red cards:</b>
+  <%= @player.red_cards %>
+</p>
+
+
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Back', players_path %>

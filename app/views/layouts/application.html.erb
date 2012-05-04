@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WebProgProj</title>
+  <title>Football Team Management</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  
+  	<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
 </head>
 <body>
+    <header class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <nav>
+            <ul class="nav pull-left">
+              <li><%= link_to "Home", '#' %></li>
+  
+            </ul>
+            <ul class="nav pull-right">
+              <li><%= link_to "Inbox", '#' %></li>
+              <li><%= link_to "Sign in", '#' %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-<%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-</body>
+    <footer class="footer">
+      <hr/>
+      <div class="container">
+        <small>
+        <a href="">Team Management</a>
+        by Sheldon Hon
+        </small>
+      </div>
+    </footer>
+
+  </body>
 </html>

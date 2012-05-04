@@ -1,4 +1,6 @@
 WebProgProj::Application.routes.draw do
+  resources :players
+
   get "welcome/index"
 
   # The priority is based upon order of creation:
