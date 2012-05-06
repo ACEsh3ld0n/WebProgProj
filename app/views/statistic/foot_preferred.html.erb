@@ -1,0 +1,35 @@
+<h2>Players preferred foot</h2>
+</br>
+<!-- --------------------------------------------------------------------------------- -->
+
+<table class="table table-striped">
+	<tr>
+	    <th>Left footed</th>
+	    <th>Right footed</th>
+	</tr>
+	<tr>
+		<td>
+			<table>
+			<% @left.each do |player| %>
+			  <tr>
+			    <td><%= player.name %></td>
+			    <td><%= player.surname %></td>
+			  </tr>
+			<% end %>
+			</table>
+		</td>
+		
+		<td>
+			<table>
+			<% @right.each do |player| %>
+			  <tr>
+			    <td><%= player.name %></td>
+			    <td><%= player.surname %></td>
+			  </tr>
+			<% end %>
+			</table>
+		</td>
+		
+	</tr>
+</table>
+

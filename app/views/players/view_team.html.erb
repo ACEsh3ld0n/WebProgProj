@@ -1,0 +1,58 @@
+<h2>Players</h2>
+</br>
+<!-- --------------------------------------------------------------------------------- -->
+
+<table class="table table-striped">
+	<tr>
+	    <th>Goalkeepers</th>
+	    <th>Defenders</th>
+	    <th>Midfielders</th>
+	    <th>Forwards</th>
+	</tr>
+	<tr>
+		<td>
+			<table>
+			<% @goalkeepers.each do |player| %>
+			  <tr>
+			    <td><%= player.name %></td>
+			    <td><%= player.surname %></td>
+			  </tr>
+			<% end %>
+			</table>
+		</td>
+		
+		<td>
+			<table>
+			<% @defenders.each do |player| %>
+			  <tr>
+			    <td><%= player.name %></td>
+			    <td><%= player.surname %></td>
+			  </tr>
+			<% end %>
+			</table>
+		</td>
+		
+		<td>
+			<table>
+			<% @midfielders.each do |player| %>
+			  <tr>
+			    <td><%= player.name %></td>
+			    <td><%= player.surname %></td>
+			  </tr>
+			<% end %>
+			</table>
+		</td>
+		
+		<td>
+			<table>
+			<% @forwards.each do |player| %>
+			  <tr>
+			    <td><%= player.name %></td>
+			    <td><%= player.surname %></td>
+			  </tr>
+			<% end %>
+			</table>
+		</td>
+	</tr>
+</table>
+

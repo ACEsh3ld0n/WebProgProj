@@ -2,46 +2,183 @@
 <html>
 <head>
   <title>Football Team Management</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   
   	<!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!-- For all HTML5 elements to work in Internet Explorer, we use a javascript that will render the HTML5 elements This javascript was done by Remy Sharp. You can link to it directly from Google code. Visit his website: HTML 5 enabling script -->
+    <!--[if IE]>
+<script src="http://rhtml5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
     
 </head>
 <body>
-    <header class="navbar">
+	<!-- -------------------------------------------------------------------------------------- -->
+     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
-          <nav>
-            <ul class="nav pull-left">
-              <li><%= link_to "Home", '#' %></li>
-  
+        <div class="container-fluid">
+          
+          <!-- -------------------------------------------------------------------------------------- -->
+           <!--<a class="brand" href="#"><img src="/assets/mylogo.png" alt="FOOTBALL MANAGER&"/>&nbsp;</a>-->
+          <!-- -------------------------------------------------------------------------------------- -->
+         <!--<div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" id="custom2"  data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> Username
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Profile</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Sign Out</a></li>
             </ul>
-            <ul class="nav pull-right">
-              <li><%= link_to "Inbox", '#' %></li>
-              <li><%= link_to "Sign in", '#' %></li>
+            
+                
+            
+         </div>-->
+         
+          <div class="nav-collapse">
+            <ul class="nav" style="font-size: 11pt">
+            	<li><img src="/assets/mylogo4.png" alt="FOOTBALL MANAGER"/></li>
+            	<li></li>
+              <li <% if current_page?(welcome_index_path) -%>class="active"<% end -%>><a href="#" ><i class="icon-home icon-white"/></i> Home</a></li>
+              
+              
+              
+              <li  <% if current_page?(statistic_manager_stats_path) -%> class="active"<% end -%>>   <%= link_to "Aboutss", statistic_manager_stats_path %></li>
+              <li><a href="/events/calendar"><i class="icon-home icon-white"></i>Contact</a></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
-          </nav>
+          
+              </div><!--/.nav-collapse -->
+          
+          	<div id="user_nav" style="font-size: 10pt; padding: 10px; float: right">
+			  <% if user_signed_in? %>
+			    <%= current_user.email %> &nbsp;&nbsp;|&nbsp;&nbsp;
+			    <%= link_to "Logout", destroy_user_session_path %>
+			  <% else %>
+			    <%= link_to "Register", new_user_registration_path %> or <%= link_to "Log in", new_user_session_path %>
+			  <% end %>
+			</div>
+            
+        
+            
+              
+          
         </div>
       </div>
-    </header>
-
-    <div class="container">
-      <%= yield %>
     </div>
-
-    <footer class="footer">
-      <hr/>
-      <div class="container">
-        <small>
-        <a href="">Team Management</a>
-        by Sheldon Hon
-        </small>
+    <!-- -------------------------------------------------------------------------------------- -->
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+            	
+              <li class="nav-header">Management</li>
+              <!-- class active-->
+              <li <% if current_page?(statistic_manager_stats_path) -%>class="active"<% end -%>><a href="#"><i class="icon-home icon-white"></i>Link</a></li>
+              <li <% if current_page?(welcome_index_path) -%>class="active"<% end -%>>   <%= link_to "Home", welcome_index_path %></li>
+              <li <% if current_page?(players_path) -%>class="active"<% end -%>><%= link_to "Players", players_path  %></li>
+              <li <% if current_page?(new_player_path) -%>class="active"<% end -%>><%= link_to "New Players", new_player_path   %></li>
+              <li <% if current_page?(events_path) -%>class="active"<% end -%>><%= link_to "Events", events_path   %></li>
+              <li <% if current_page?(events_calendar_path) -%>class="active"<% end -%>><%= link_to "Calendar", events_calendar_path   %></li>
+              <li <% if current_page?(players_view_team_path) -%>class="active"<% end -%>><%= link_to "View team", players_view_team_path   %></li>
+              <li <% if current_page?(statistic_manager_stats_path) -%>class="active"<% end -%>><%= link_to "Manager stats", statistic_manager_stats_path   %></li>
+               <li <% if current_page?(statistic_foot_preferred_path) -%>class="active"<% end -%>><%= link_to "Players preferred foot", statistic_foot_preferred_path   %></li>
+               <li <% if current_page?(statistic_appearances_path) -%>class="active"<% end -%>><%= link_to "Appearances made", statistic_appearances_path   %></li>
+               <li <% if current_page?(statistic_goalscorers_path ) -%>class="active"<% end -%>><%= link_to "Goalscorers", statistic_goalscorers_path   %></li>
+               <li <% if current_page?(statistic_assisters_path) -%>class="active"<% end -%>><%= link_to "Assisters", statistic_assisters_path   %></li>
+               <li <% if current_page?(statistic_yellows_path) -%>class="active"<% end -%>><%= link_to "Yellow cards", statistic_yellows_path   %></li>
+               <li <% if current_page?(statistic_reds_path) -%>class="active"<% end -%>><%= link_to "Red cards", statistic_reds_path   %></li>
+ 
+ 				</br>
+              <li class="nav-header">More</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+            <ul class="nav nav-list">
+             </br> </br> </br>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <!-- -------------------------------------------------------------------------------------- -->
+        
+        <div class="span10">
+          <div class="hero-unit">
+          	
+            <!-- <h1>Hello, world!</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p> -->
+            <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+			<%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+			<%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+			
+            <%= yield %>
+          </div>
+			
+		  <!-- -------------------------------------------------------------------------------------- -->
+          <div class="row-fluid">
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a id="custom3" class="btn btn-primary" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <!--class btn -->
+              <p><a id="custom3" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a id="custom3"  href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+          </div><!--/row-->
+          <!-- -------------------------------------------------------------------------------------- -->
+          
+        </div>
       </div>
-    </footer>
-
+	  <!-- -------------------------------------------------------------------------------------- -->
+      <hr>
+	  <!-- -------------------------------------------------------------------------------------- -->
+      <footer>
+        <p>&copy; Company 2012</p>
+            <div class="navbar navbar-fixed-bottom">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <!-- -------------------------------------------------------------------------------------- -->
+          <a class="brand" href="#">&nbsp;&nbsp;</a>
+          <!-- -------------------------------------------------------------------------------------- -->
+          <div class="nav-collapse">
+            <ul class="nav">
+            		<li style="font-size: 10pt; padding: 14px; float: left"> Authored by Sheldon Hon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+             		<li><a href="http://www.facebook.com" title="Become a fan"><img src="/assets/FB.png" width="28" height="28" alt="#"/> Become a fan</a></li>
+					<li><a href="http://www.twitter.com" title="Follow our tweets"><img src="/assets/Twitter.png" width="26" height="26" alt="#"/> Follow our tweets</a></li>
+					<li><a href="http://www.youtube.com"  title="View our videos"><img src="/assets/Youtube.png" width="26" height="26" alt="#"/> Watch our videos</a></li>
+					<li><a href="http://www.dribbble.com" title="Subscribe to our RSS feed"><img src="/assets/RSS.png" width="26" height="26" alt="#"/> Subscribe to our RSS feed</a></li>
+					
+            </ul>
+          </div><!--/.nav-collapse -->
+          
+          <div id="user_nav" style="font-size: 10pt; padding: 14px; float: right">
+          			<%= Time.now.strftime('%d %b %H:%M %P') %> 
+          	</div>
+        </div>
+      </div>
+    </div>
+      </footer>
+      <!-- -------------------------------------------------------------------------------------- -->
+    </div>
+    <!-- -------------------------------------------------------------------------------------- -->
   </body>
 </html>

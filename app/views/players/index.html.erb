@@ -1,43 +1,53 @@
-<h1>Listing players</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Surname</th>
-    <th>Date of birth</th>
-    <th>Email</th>
-    <th>Foot</th>
-    <th>Position</th>
-    <th>Appearances</th>
-    <th>Goals</th>
-    <th>Assists</th>
-    <th>Yellow cards</th>
-    <th>Red cards</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @players.each do |player| %>
-  <tr>
-    <td><%= player.name %></td>
-    <td><%= player.surname %></td>
-    <td><%= player.date_of_birth %></td>
-    <td><%= player.email %></td>
-    <td><%= player.foot %></td>
-    <td><%= player.position %></td>
-    <td><%= player.appearances %></td>
-    <td><%= player.goals %></td>
-    <td><%= player.assists %></td>
-    <td><%= player.yellow_cards %></td>
-    <td><%= player.red_cards %></td>
-    <td><%= link_to 'Show', player %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h2>Players</h2>
+</br>
+<table id="players">
+	<!--For data table begin-->
+	<thead>
+	  <tr>
+	    <th>Name</th>
+	    <th>Surname</th>
+	    <th>Date of birth</th>
+	    <!-- <th>Email</th> -->
+	    <th>Foot</th>
+	    <th>Position</th>
+	    <th>Appearances</th>
+	    <th>Goals</th>
+	    <th>Assists</th>
+	    <th>Yellow cards</th>
+	    <th>Red cards</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+	</thead>
+	<!--For data table end-->
+	
+	<!--For data table begin-->
+	<tbody>
+	<% @players.each do |player| %>
+	  <tr>
+	    <td><%= player.name %></td>
+	    <td><%= player.surname %></td>
+	    <td><%= player.date_of_birth.strftime("%d-%m-%Y") %></td>
+	    <!-- <td><%= player.email %></td> -->
+	    <td><%= player.foot %></td>
+	    <td><%= player.position %></td>
+	    <td><%= player.appearances %></td>
+	    <td><%= player.goals %></td>
+	    <td><%= player.assists %></td>
+	    <td><%= player.yellow_cards %></td>
+	    <td><%= player.red_cards %></td>
+	    <td><%= link_to 'View details', player %></td>
+	    <td><%= link_to 'Edit player', edit_player_path(player), :class => 'btn btn-mini' %></td>
+	    <td><%= link_to 'Delete player', player, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %></td>
+	  </tr>
+	<% end %>
+	</tbody>
+	<!--For data table end-->
+	
 </table>
 
+<br />
 <br />
 
 <%= link_to 'New Player', new_player_path %>

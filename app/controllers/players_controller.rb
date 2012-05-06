@@ -1,4 +1,7 @@
 class PlayersController < ApplicationController
+  # ensure autehnticated first
+  before_filter :authenticate_user!, :except => [:show, :index, :view_team]
+  
   # GET /players
   # GET /players.json
   def index
@@ -79,5 +82,15 @@ class PlayersController < ApplicationController
       format.html { redirect_to players_url }
       format.json { head :no_content }
     end
+  end
+  
+  # GET /players
+  # GET /players.json
+  def view_team
+    @goalkeepers = Player.where(:position => 'Goalkeeper')
+    @defenders = Player.where(:position => 'Defender')
+    @midfielders = Player.where(:position => 'Midfielder')
+    @forwards = Player.where(:position => 'Forward')
+    @total = Player.where(:position => 'Forward')
   end
 end

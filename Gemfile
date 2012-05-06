@@ -2,6 +2,26 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 
+gem 'formtastic', " ~> 2.1.1"
+gem 'formtastic-bootstrap'
+
+gem 'tabulous'
+
+gem 'geocoder' 
+
+gem 'acts_as_list'
+
+# release candidate 0 devise
+# gem 'devise', '1.1.rc0'
+gem "devise", :git => "git://github.com/plataformatec/devise.git"
+
+gem "watu_table_builder", :require => "table_builder", :git => "git://github.com/watu/table_builder.git"
+
+# gem 'libv8', '3.3.10.4'
+# gem 'less-rails-bootstrap'
+# gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+# bootstrap-sass, 2.0.0.0
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -22,9 +42,17 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
+  #gem 'therubyracer'
+
 
   gem 'uglifier', '>= 1.0.3'
+  
+  gem 'bootstrap-sass'
+  
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  
+  #gem "twitter-bootstrap-rails"
+
 end
 
 gem 'jquery-rails'

@@ -1,4 +1,26 @@
 WebProgProj::Application.routes.draw do
+  get "statistic/manager_stats"
+
+  get "statistic/foot_preferred"
+
+  get "statistic/appearances"
+
+  get "statistic/goalscorers"
+
+  get "statistic/assisters"
+
+  get "statistic/yellows"
+
+  get "statistic/reds"
+
+  get "players/view_team"
+
+  get "events/calendar"
+
+  resources :events
+
+  devise_for :users, :path_names => { :sign_up => "register" }
+
   resources :players
 
   get "welcome/index"

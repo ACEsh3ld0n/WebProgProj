@@ -1,0 +1,38 @@
+<h1>Listing events</h1>
+
+<!--<table id="players">-->
+	<table class="table table-striped">
+	<!--For data table begin-->
+	<thead>
+		 <tr>
+		    <th>Name</th>
+		    <th>Place</th>
+		    <th>Scheduled</th>
+		    <th>At</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+		  </thead>
+
+<!--For data table begin-->
+	<tbody>
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.place %></td>
+    <td><%= event.scheduled %></td>
+    <td><%= event.at.strftime('%H:%M:%S') %></td>
+    <td><%= link_to 'View details', event %></td>
+    <td><%= link_to 'Edit event', edit_event_path(event), :class => 'btn btn-mini' %></td>
+    <td><%= link_to 'Delete event', event, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %></td>
+  </tr>
+<% end %>
+
+	</tbody>
+	
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %>

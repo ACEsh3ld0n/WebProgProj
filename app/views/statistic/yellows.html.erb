@@ -1,0 +1,17 @@
+<h3>Yellow cards</h3>
+
+
+			<table class="table table-striped">
+				<tr>
+	    <th>Name</th>
+	    <th>Surname</th>
+	     <th>Yellow cards</th>
+			</tr>
+			<% @yellow.each do |player| %>
+			  <tr>
+			    <td><%= player.name %></td>
+			    <td><%= player.surname %></td>
+			    <td><%= player.yellow_cards %></td>
+			  </tr>
+			<% end %>
+			</table>

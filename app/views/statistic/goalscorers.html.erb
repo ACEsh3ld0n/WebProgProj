@@ -1,0 +1,17 @@
+<h1>Top goal scorers</h1>
+
+
+			<table class="table table-striped">
+				<tr>
+	    <th>Name</th>
+	    <th>Surname</th>
+	     <th>Goals</th>
+			</tr>
+			<% @goalscorer.each do |player| %>
+			  <tr>
+			    <td><%= player.name %></td>
+			    <td><%= player.surname %></td>
+			    <td><%= player.goals %></td>
+			  </tr>
+			<% end %>
+			</table>
